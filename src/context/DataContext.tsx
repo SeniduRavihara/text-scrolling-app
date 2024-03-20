@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { Preferences } from "@capacitor/preferences";
 
 export const DataContext = createContext<{
   story: string;
@@ -22,27 +23,47 @@ const DataContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [speed, setSpeed] = useState(1);
 
   useEffect(() => {
-    const savedStory = localStorage.getItem("story");
-    setStory(savedStory || "");
+    const getLocalData = async () => {
+      try {
+        const { value: lastSavedStory } = await Preferences.get({
+          key: "story",
+        });
+        const { value: lastSavedBackgroung } = await Preferences.get({
+          key: "background",
+        });
 
-    const savedbackground = localStorage.getItem("background");
-    setBackground(savedbackground || "");
+        setBackground(lastSavedBackgroung || "");
+        setStory(lastSavedStory || "");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getLocalData();
   }, []);
 
   useEffect(() => {
+    const saveDataLocally = async () => {
+      await Preferences.set({
+        key: "story",
+        value: story,
+      });
+    };
     if (story) {
-      localStorage.setItem("story", story);
+      saveDataLocally();
     }
   }, [story]);
 
   useEffect(() => {
+    const saveDataLocally = async () => {
+      await Preferences.set({
+        key: "background",
+        value: background,
+      });
+    };
     if (background) {
-      localStorage.setItem("background", background);
+      saveDataLocally();
     }
-  }, [background]);
-
-  useEffect(() => {
-    console.log(background);
   }, [background]);
 
   const value = {

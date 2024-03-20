@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,10 +20,8 @@ import {
 
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -34,7 +32,7 @@ const AddStory: React.FC = () => {
   const navigate = useNavigate();
   const { setStory, story, background } = useData();
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [animationFrameId, setAnimationFrameId] = useState<number | null>(null);
   const [videoDuration, setVideoDuration] = useState(15);
   const [color, setColor] = useState("rgba(255,255,255,1)");
@@ -92,6 +90,7 @@ const AddStory: React.FC = () => {
   const toggleScroll = () => {
     if (isPlaying) {
       stopScroll();
+      setIsPlaying(false);
     } else {
       startScroll();
       setIsPlaying(true);
@@ -128,12 +127,13 @@ const AddStory: React.FC = () => {
           outline: "none", // Remove default outline
           fontSize: `${fontSize}px`,
           color: `${fontColor}`,
+          // overflow: "hidden",
         }}
       />
 
       <Drawer>
         <DrawerTrigger className="flex items-center left-0 justify-center absolute bottom-3 w-full">
-          <HiMiniAdjustmentsHorizontal />
+          <HiMiniAdjustmentsHorizontal className="text-gray-300 shadow-md" />
         </DrawerTrigger>
         <DrawerContent className="p-8">
           <DrawerHeader>

@@ -1,3 +1,4 @@
+import TextEditor from "@/components/TextEditor";
 import { Button } from "@/components/ui/button";
 import { useData } from "@/hooks/useData";
 import { Label } from "@radix-ui/react-label";
@@ -68,6 +69,9 @@ const AddBackground = () => {
           Next
         </Button>
       </div>
+
+      <TextEditor />
+
     </div>
   );
 };
