@@ -1,0 +1,7 @@
+{
+  "name": "text-scrolling-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}
