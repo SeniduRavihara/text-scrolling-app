@@ -1,5 +1,5 @@
 import { useReactMediaRecorder } from "react-media-recorder";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 const TestScreenRecord = () => {
   const { status, startRecording, stopRecording, mediaBlobUrl } =

@@ -1,9 +1,19 @@
 import ReactQuill, { Quill } from "react-quill";
 import { useData } from "@/hooks/useData";
+import "react-quill/dist/quill.snow.css";
+import "./style.css";
 
-// Define a custom font whitelist
-const Font = Quill.import("formats/font");
-Font.whitelist = ["Ubuntu", "Raleway", "Roboto", "test"];
+const Font: any = Quill.import("formats/font");
+
+Font.whitelist = [
+  "Ubuntu",
+  "Raleway",
+  "Roboto",
+  "UN-Arjuna",
+  "UN-Baron",
+  "UN-basuru",
+  "UN-Siri",
+];
 Quill.register(Font, true);
 
 function TextEditor() {

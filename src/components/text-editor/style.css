@@ -1,0 +1,165 @@
+
+@font-face {
+  font-family: 'un-abhaya-bold-prod';
+  src: url('../../fonts/sinhalaUnicode/un-abhaya-bold-prod.ttf') format('truetype');
+  /* Add other font properties if needed */
+}
+
+@font-face {
+  font-family: 'un-abhaya-prod';
+  src: url('../../fonts/sinhalaUnicode/un-abhaya-prod.ttf') format('truetype');
+  /* Add other font properties if needed */
+}
+
+@font-face {
+  font-family: 'UN-Arjuna';
+  src: url('../../fonts/sinhalaUnicode/un-arjuna.ttf') format('truetype');
+  /* Add other font properties if needed */
+}
+
+@font-face {
+  font-family: 'UN-Baron';
+  src: url('../../fonts/sinhalaUnicode/un-baron-prod.ttf') format('truetype');
+  /* Add other font properties if needed */
+}
+
+@font-face {
+  font-family: 'UN-basuru';
+  src: url('../../fonts/sinhalaUnicode/un-basuru.ttf') format('truetype');
+  /* Add other font properties if needed */
+}
+
+@font-face {
+  font-family: 'UN-Siri';
+  src: url('../../fonts/sinhalaUnicode/un-siri-prod.ttf') format('truetype');
+  /* Add other font properties if needed */
+}
+
+/* ------------------------------------------------ */
+
+/* Set default font-family */
+.app .ql-editor {
+  font-family: "Ubuntu";
+}
+
+/* Set dropdown font-families */
+
+.ql-picker.ql-font .ql-picker-label[data-value="Ubuntu"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="Ubuntu"]::before
+{
+    font-family: "Ubuntu", cursive;
+    content: "Ubuntu";
+}
+.ql-picker.ql-font .ql-picker-label[data-value="Raleway"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="Raleway"]::before
+{
+    font-family: "Raleway", cursive;
+    content: "Raleway";
+}
+.ql-picker.ql-font .ql-picker-label[data-value="Roboto"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="Roboto"]::before
+{
+    font-family: "Roboto", cursive;
+    content: "Roboto";
+}
+.ql-picker.ql-font .ql-picker-label[data-value="test"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="test"]::before
+{
+    font-family: "test", cursive;
+    content: "test";
+}
+.ql-picker.ql-font .ql-picker-label[data-value="UN-Arjuna"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="UN-Arjuna"]::before
+{
+    font-family: "UN-Arjuna", cursive;
+    content: "UN-Arjuna";
+}
+.ql-picker.ql-font .ql-picker-label[data-value="UN-Baron"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="UN-Baron"]::before
+{
+    font-family: "UN-Baron", cursive;
+    content: "UN-Baron";
+}
+.ql-picker.ql-font .ql-picker-label[data-value="UN-basuru"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="UN-basuru"]::before
+{
+    font-family: "UN-basuru", cursive;
+    content: "UN-basuru";
+}
+.ql-picker.ql-font .ql-picker-label[data-value="UN-Siri"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="UN-Siri"]::before
+{
+    font-family: "UN-Siri", cursive;
+    content: "UN-Siri";
+}
+.ql-picker.ql-font .ql-picker-label[data-value="UN-Baron"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="UN-Baron"]::before
+{
+    font-family: "UN-Baron", cursive;
+    content: "UN-Baron";
+}
+
+/* Set content font-families */
+.ql-font-Raleway {
+  font-family: "Raleway";
+}
+.ql-font-Roboto {
+  font-family: "Roboto";
+}
+.ql-font-test {
+  font-family: "test";
+}
+.ql-font-UN-Arjuna {
+  font-family: "UN-Arjuna";
+}
+.ql-font-UN-Baron {
+  font-family: "UN-Baron";
+}
+.ql-font-UN-basuru{
+  font-family: "UN-basuru";
+}
+.ql-font-UN-Siri {
+  font-family: "UN-Siri";
+}
+.ql-font-UN-Arjuna {
+  font-family: "UN-Arjuna";
+}
+/* We do not set Courier since it is the default font */
+
+body {
+  background: #f3f1f2;
+  font-family: sans-serif;
+}
+
+.app {
+  margin: 1rem 4rem;
+}
+
+.app .ql-container {
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  background: #fefcfc;
+}
+
+/* Snow Theme */
+.app .ql-snow.ql-toolbar {
+  display: block;
+  background: #eaecec;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+/* Bubble Theme */
+.app .ql-bubble .ql-editor {
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+
+.app .ql-editor {
+  min-height: 18em;
+}
+
+.themeSwitcher {
+  margin-top: 0.5em;
+  font-size: small;
+}

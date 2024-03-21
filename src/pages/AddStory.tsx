@@ -1,20 +1,13 @@
-import TextEditor from "@/components/TextEditor";
+import TextEditor from "@/components/text-editor/TextEditor";
 import { Button } from "@/components/ui/button";
 import { useData } from "@/hooks/useData";
-import { Editor } from "@/testing/TestTextEditor";
 import { Preferences } from "@capacitor/preferences";
 import { GrNext, GrPrevious } from "react-icons/gr";
-import ReactQuill from "react-quill";
 import { useNavigate } from "react-router-dom";
-
- const clearStory = () => {
-   setStory("");
-   Preferences.remove({ key: "story" });
- };
 
 const AddStory: React.FC = () => {
   const navigate = useNavigate();
-  const { setStory, story } = useData();
+  const { setStory } = useData();
 
   const handlePrevClick = () => {
     navigate("/add-background");
@@ -22,10 +15,9 @@ const AddStory: React.FC = () => {
   const handleNextClick = () => {
     navigate("/scrolling");
   };
-
   const clearStory = () => {
     setStory("");
-    localStorage.removeItem("story");
+    Preferences.remove({ key: "story" });
   };
 
   return (
