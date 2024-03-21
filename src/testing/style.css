@@ -1,0 +1,71 @@
+/* Set default font-family */
+.app .ql-editor {
+  font-family: "Ubuntu";
+}
+
+/* Set dropdown font-families */
+
+.ql-picker.ql-font .ql-picker-label[data-value="Ubuntu"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="Ubuntu"]::before
+{
+    font-family: "Ubuntu", cursive;
+    content: "Ubuntu";
+}
+.ql-picker.ql-font .ql-picker-label[data-value="Raleway"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="Raleway"]::before
+{
+    font-family: "Raleway", cursive;
+    content: "Raleway";
+}
+.ql-picker.ql-font .ql-picker-label[data-value="Roboto"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="Roboto"]::before
+{
+    font-family: "Roboto", cursive;
+    content: "Roboto";
+}
+/* Set content font-families */
+.ql-font-Raleway {
+  font-family: "Raleway";
+}
+.ql-font-Roboto {
+  font-family: "Roboto";
+}
+/* We do not set Courier since it is the default font */
+
+body {
+  background: #f3f1f2;
+  font-family: sans-serif;
+}
+
+.app {
+  margin: 1rem 4rem;
+}
+
+.app .ql-container {
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  background: #fefcfc;
+}
+
+/* Snow Theme */
+.app .ql-snow.ql-toolbar {
+  display: block;
+  background: #eaecec;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+/* Bubble Theme */
+.app .ql-bubble .ql-editor {
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+
+.app .ql-editor {
+  min-height: 18em;
+}
+
+.themeSwitcher {
+  margin-top: 0.5em;
+  font-size: small;
+}

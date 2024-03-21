@@ -27,6 +27,7 @@
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.15",
     "lucide-react": "^0.359.0",
+    "quill": "^2.0.0-rc.3",
     "react": "^18.2.0",
     "react-best-gradient-color-picker": "^3.0.7",
     "react-best-gradient-color-picker-mobile-draggable": "^2.4.1",
