@@ -23,6 +23,10 @@ const DataContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [speed, setSpeed] = useState(1);
 
   useEffect(() => {
+    console.log(story);
+  }, [story]);
+
+  useEffect(() => {
     const getLocalData = async () => {
       try {
         const { value: lastSavedStory } = await Preferences.get({
@@ -31,7 +35,8 @@ const DataContextProvider = ({ children }: { children: React.ReactNode }) => {
         const { value: lastSavedBackgroung } = await Preferences.get({
           key: "background",
         });
-
+        console.log(lastSavedStory);
+        
         setBackground(lastSavedBackgroung || "");
         setStory(lastSavedStory || "");
       } catch (error) {

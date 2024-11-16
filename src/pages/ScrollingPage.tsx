@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useData } from "@/hooks/useData";
-import { useNavigate } from "react-router-dom";
 import ColorPicker from "react-best-gradient-color-picker";
 import { HiMiniAdjustmentsHorizontal } from "react-icons/hi2";
 import { FaReadme } from "react-icons/fa";
@@ -25,9 +24,10 @@ import {
 } from "@/components/ui/drawer";
 import { cn } from "@/lib/utils";
 import { Preferences } from "@capacitor/preferences";
+import { GrPrevious } from "react-icons/gr";
+import ReactHtmlParser from "react-html-parser";
 
-const ScrollingPage: React.FC = () => {
-  const navigate = useNavigate();
+const ScrollingPage = ({ setDisplayTextEditor }: any) => {
   const { setStory, story, background } = useData();
   const divRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -37,9 +37,10 @@ const ScrollingPage: React.FC = () => {
   const [fontSize, setFontSize] = useState(15);
   const [fontColor, setFontColor] = useState("rgba(0,0,0,1)");
   const [isEditing, setIsEditing] = useState(false);
+  const [isOpenDrawer, setIsOpenDrawer] = useState(false);
 
   const handlePrevClick = () => {
-    navigate("/add-background");
+    setDisplayTextEditor(true);
   };
 
   const clearStory = () => {
@@ -93,6 +94,16 @@ const ScrollingPage: React.FC = () => {
       startScroll();
       setIsPlaying(true);
     }
+    setIsOpenDrawer(false);
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const transform = (node: any, index: any) => {
+    if (node.type === "tag" && node.name === "button") {
+      return (
+        <React.Fragment key={index}>{node.children[0].data}</React.Fragment>
+      );
+    }
   };
 
   return (
@@ -100,7 +111,7 @@ const ScrollingPage: React.FC = () => {
       className={cn("w-screen h-screen p-5")}
       style={{ backgroundColor: color }}
     >
-      <div
+      {/* <div
         ref={divRef}
         className="p-3 text-center"
         style={{
@@ -113,9 +124,25 @@ const ScrollingPage: React.FC = () => {
           height: "96%", // Adjust the height as needed
         }}
         dangerouslySetInnerHTML={{ __html: story }}
-      />
+      /> */}
 
-      <Drawer>
+      <div
+        ref={divRef}
+        className="text-center hide-scrollbar"
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          fontSize: `${fontSize}px`,
+          color: `${fontColor}`,
+          overflowY: "auto",
+          height: "96%", // Adjust the height as needed
+        }}
+      >
+        {ReactHtmlParser(story, { transform })}
+      </div>
+
+      <Drawer open={isOpenDrawer} onOpenChange={setIsOpenDrawer}>
         <DrawerTrigger className="flex items-center left-0 justify-center absolute bottom-3 w-full">
           <HiMiniAdjustmentsHorizontal className="text-gray-300 shadow-md" />
         </DrawerTrigger>
@@ -212,8 +239,12 @@ const ScrollingPage: React.FC = () => {
 
           <div className="w-full flex items-center justify-between mt-5">
             <div className="flex w-full justify-between">
-              <Button onClick={handlePrevClick} variant="outline">
-                Prev
+              <Button
+                onClick={handlePrevClick}
+                variant="outline"
+                className="bg-blue-500 text-primary-foreground"
+              >
+                <GrPrevious />
               </Button>
               <Button onClick={toggleScroll} variant="outline">
                 {isPlaying ? "Pause" : "Play"}

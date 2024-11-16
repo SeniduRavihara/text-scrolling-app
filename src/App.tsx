@@ -2,8 +2,9 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import RootLayout from "@/layout/RootLayout";
 import ConfigStuffPage from "@/pages/ConfigStuffPage";
 import ScrollingPage from "@/pages/ScrollingPage";
-import AddBackground from "./pages/AddBackground";
-import AddStory from "./pages/AddStory";
+import AddBackground from "@/pages/AddBackground";
+import AddStory from "@/pages/AddStory";
+import PresentationPage from "@/pages/PresentationPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -12,6 +13,7 @@ const router = createBrowserRouter(
       <Route path="/add-background" element={<AddBackground />} />
       <Route path="/add-story" element={<AddStory />} />
       <Route path="/scrolling" element={<ScrollingPage />} />
+      <Route path="/presentation" element={<PresentationPage />} />
     </Route>
   )
 )

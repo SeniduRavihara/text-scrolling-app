@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useData } from "@/hooks/useData";
 import { Label } from "@radix-ui/react-label";
+import { GrNext, GrPrevious } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 
 const AddBackground = () => {
@@ -8,13 +9,6 @@ const AddBackground = () => {
 
   const navigate = useNavigate();
 
-  const handleNextClick = () => {
-    navigate("/add-story");
-  };
-
-  const handlePrevClick = () => {
-    navigate("/add-story");
-  };
 
   const clearbackground = () => {
     setBackground("");
@@ -35,7 +29,7 @@ const AddBackground = () => {
   };
 
   return (
-    <div className="w-screen h-screen p-5">
+    <div className="flex flex-col items-center justify-center gap-2 bg-slate-100">
       <Label htmlFor="message">Add Your Background</Label>
 
       {/* <input type="file" accept="image/*" onChange={handleChange} /> */}
@@ -50,24 +44,16 @@ const AddBackground = () => {
       />
       <label
         htmlFor="fileInput"
-        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded cursor-pointer"
+        className="bg-blue-500 hover:bg-blue-600 text-center text-white font-bold py-2 px-4 rounded cursor-pointer"
       >
         Choose File
       </label>
 
-      <img src={background} />
+      <img src={background} className="my-10 w-[100px]" />
 
-      <div className="w-full flex items-center justify-between">
-        <Button onClick={handlePrevClick} variant="outline" className="mt-5">
-          Prev
-        </Button>
-        <Button onClick={clearbackground} variant="outline" className="mt-5">
-          Clear
-        </Button>
-        <Button onClick={handleNextClick} variant="outline" className="mt-5">
-          Next
-        </Button>
-      </div>
+      <Button onClick={clearbackground} variant="outline">
+        Clear
+      </Button>
     </div>
   );
 };
