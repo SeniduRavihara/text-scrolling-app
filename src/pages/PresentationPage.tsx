@@ -25,7 +25,7 @@ const PresentationPage = () => {
   };
 
   return (
-    <div className="w-screen h-screen flex flex-col">
+    <div className="w-full h-full flex flex-col">
       <div className={`${displayTextEditor ? "" : "hidden"}`}>
         <TextEditor />
       </div>
@@ -37,8 +37,7 @@ const PresentationPage = () => {
       </div>
 
       {displayTextEditor && (
-        <div className="w-full fixed bottom-0 left-0 bg-gray-100 flex items-center justify-between mt-2">
-          <div className="flex w-full justify-between">
+        <div className="w-[400px] p-3 fixed bottom-5 bg-[#6082ad9f] flex items-center justify-between mt-2">
             <Button
               onClick={handlePrevClick}
               variant="outline"
@@ -61,7 +60,6 @@ const PresentationPage = () => {
               <GrNext />
             </Button>
           </div>
-        </div>
       )}
     </div>
   );
